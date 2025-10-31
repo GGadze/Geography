@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeographyManager", "GeoManager\GeographyManager.csproj", "{8FE755BB-68AB-464C-B221-4555BB15B5C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geography", "Geography\Geography.csproj", "{8829E5B9-30F5-4B17-A8AF-5AA260C8FD37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FE755BB-68AB-464C-B221-4555BB15B5C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FE755BB-68AB-464C-B221-4555BB15B5C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FE755BB-68AB-464C-B221-4555BB15B5C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FE755BB-68AB-464C-B221-4555BB15B5C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8829E5B9-30F5-4B17-A8AF-5AA260C8FD37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8829E5B9-30F5-4B17-A8AF-5AA260C8FD37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8829E5B9-30F5-4B17-A8AF-5AA260C8FD37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8829E5B9-30F5-4B17-A8AF-5AA260C8FD37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B061E4E5-7C9B-4B30-84D0-413CA6B8FDA2}
+	EndGlobalSection
+EndGlobal
