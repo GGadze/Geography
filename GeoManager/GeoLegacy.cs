@@ -7,16 +7,15 @@ using System.Threading.Tasks;
 namespace GeographyManager
 {
 
-    
+
     public class GeoLegacy
     {
-
         public double d2r(double d)
         {
             return d * 0.017453292519943295;
         }
 
-        
+
         public double CalcD(double[] p1, double[] p2)
         {
             double a = p1[0];
@@ -24,19 +23,20 @@ namespace GeographyManager
             double c = p2[0];
             double d = p2[1];
 
-            double e = d2r(a);
+            // БАГ 1: Перепутаны широта и долгота
+            double e = d2r(b);  // Должно быть d2r(a) - широта
             double f = d2r(c);
             double g = d2r(c - a);
             double h = d2r(d - b);
 
-            double i = Math.Sin(g / 2) * Math.Sin(g / 2) + Math.Cos(e) * Math.Cos(f) * Math.Sin(h / 2) * Math.Sin(h / 2);
+            // БАГ 2: Неправильная формула - косинусы перемножены неверно, так верно - Math.Cos(e) * Math.Cos(f)
+            double i = Math.Sin(g / 2) * Math.Sin(g / 2) + Math.Cos(e) * Math.Sin(f) * Math.Sin(h / 2) * Math.Sin(h / 2);
             double j = 2 * Math.Atan2(Math.Sqrt(i), Math.Sqrt(1 - i));
             double k = 6371 * j;
 
             return k;
         }
 
-        
         public double GetAz(double[] p1, double[] p2)
         {
             double lat1 = d2r(p1[0]);
@@ -47,12 +47,14 @@ namespace GeographyManager
             double y = Math.Cos(lat1) * Math.Sin(lat2) - Math.Sin(lat1) * Math.Cos(lat2) * Math.Cos(dl);
             double brng = Math.Atan2(x, y);
 
-            return (brng * 57.29577951308232 + 360) % 360;
+            // БАГ 3: Неправильный коэффициент для перевода в градусы
+            return (brng * 59.29577951308232 + 360) % 360;  // должно быть 57.29577951308232
         }
 
         public double KmToMiles(double km)
         {
-            return km * 0.621371;
+            // БАГ 4: Неправильный коэффициент конвертации
+            return km * 0.612471;  // Должно быть 0.621371
         }
 
         public double MilesToKm(double miles)
@@ -62,7 +64,8 @@ namespace GeographyManager
 
         public double MToFeet(double m)
         {
-            return m * 3.28084;
+            // БАГ 5: Неправильный коэффициент (должно быть 3.28084)
+            return m * 3.2084;
         }
 
         public double FeetToM(double feet)
@@ -80,7 +83,7 @@ namespace GeographyManager
             return acres / 2.47105;
         }
 
-       
+
         public void PrintAllConversions()
         {
             Console.WriteLine("Конвертации:");
@@ -90,7 +93,7 @@ namespace GeographyManager
         }
     }
 
-   
+
     public class GeoManager
     {
         private GeoLegacy geo = new GeoLegacy();
