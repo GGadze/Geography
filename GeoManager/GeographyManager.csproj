@@ -41,8 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeoLegacy.cs" />
+    <Compile Include="GeoManager.cs" />
+    <Compile Include="Interfaces\IAzimuthCalculator.cs" />
+    <Compile Include="Interfaces\ICoordinateConverter.cs" />
+    <Compile Include="Interfaces\IDistanceCalculator.cs" />
+    <Compile Include="Interfaces\IUnitConverter.cs" />
+    <Compile Include="Models\GeoPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AzimuthCalculator.cs" />
+    <Compile Include="Services\DistanceCalculator.cs" />
+    <Compile Include="Services\UnitConverter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

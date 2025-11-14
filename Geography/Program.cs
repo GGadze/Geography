@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GeographyManager;
+﻿using GeographyManager;
+using GeographyManager.Services;
+using System;
 
 namespace Geography
 {
@@ -12,8 +9,13 @@ namespace Geography
     {
         static void Main()
         {
-            var manager = new GeoManager();
-            manager.ProcessEverything();
+            var geoManager = new GeoManager(
+                new DistanceCalculator(),
+                new AzimuthCalculator(),
+                new UnitConverter()
+            );
+
+            geoManager.ProcessEverything();
         }
     }
 }   
